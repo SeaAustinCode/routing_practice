@@ -1,24 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+// import {BrowserRouter} from "react-router-dom"
+import { Link, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import Input from './components/Input';
+import InputColor from './components/InputColor';
 
 function App() {
   return (
+// {/* <BrowserRouter> */}
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Link to={"/home"}></Link>
+      <Routes>
+        
+        <Route path="/home" element={<Home/>}/> {/* this makes it so the Home component only displays when /home is displayed */}
+
+        <Route path="/:display" element={<Input/>}/>
+
+        <Route path="/:display/:textcolor/:backgroundcolor" element={<InputColor/>}/>
+
+      </Routes> 
+      
     </div>
+    //</BrowserRouter>
   );
 }
 
